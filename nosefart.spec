@@ -1,12 +1,12 @@
 Summary:	Nosefart - NSF files player
 Summary(pl):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
-Version:	1.92c
+Version:	1.92e
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
-# Source0-md5:	33d14543993848041b1ae3cd40dedf48
+Source0:	http://dl.sourceforge.net/%{nama}/%{name}-%{version}-mls.tar.bz2
+# Source0-md5:	08f8f3e1247fb6c0a0d948a85fb77741
 Patch0:		%{name}-opt.patch
 URL:		http://nosefart.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
