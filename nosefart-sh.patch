@@ -1,0 +1,11 @@
+--- nosefart-2.0-mls/src/gnosefart-0.9/src/main.c.orig	2004-04-17 03:29:41.000000000 +0200
++++ nosefart-2.0-mls/src/gnosefart-0.9/src/main.c	2004-04-18 23:53:30.663542088 +0200
+@@ -45,7 +45,7 @@
+ 
+ void gnosefart_init(int argc, char ** argv)
+ {
+-	if(!system("nosefart &> /dev/stdout | grep \"command not found\"")) /* hack hack hack */
++	if(system("nosefart >/dev/null 2>/dev/null")) /* hack hack hack */
+ 	{
+ 		nferror = create_nonosefart_error();
+ 		gtk_widget_show(nferror);		
