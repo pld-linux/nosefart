@@ -2,7 +2,7 @@ Summary:	Nosefart - NSF files player
 Summary(pl):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
 Version:	2.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
@@ -13,6 +13,7 @@ URL:		http://nosefart.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xmms-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -74,7 +75,11 @@ rm -rf src/gnosefart-0.9/autom4te.cache
 	LDFLAGS="%{rpmldflags}"
 
 cd src/xmms
-cp -f /usr/share/automake/config.* .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make} \
 	AM_LDFLAGS="-lm"
