@@ -6,6 +6,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
+# Source0-md5:	33d14543993848041b1ae3cd40dedf48
 Patch0:		%{name}-opt.patch
 URL:		http://nosefart.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
