@@ -5,7 +5,7 @@ Version:	1.92e
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/%{nama}/%{name}-%{version}-mls.tar.bz2
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}-mls.tar.bz2
 # Source0-md5:	08f8f3e1247fb6c0a0d948a85fb77741
 Patch0:		%{name}-opt.patch
 URL:		http://nosefart.sourceforge.net/
