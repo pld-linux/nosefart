@@ -1,5 +1,5 @@
---- nosefart-2.0-mls/src/gnosefart-0.9/src/main.c.orig	2004-04-17 03:29:41.000000000 +0200
-+++ nosefart-2.0-mls/src/gnosefart-0.9/src/main.c	2004-04-18 23:53:30.663542088 +0200
+--- nosefart-2.1-mls/src/gnosefart-1.0/src/main.c.orig	2004-04-17 03:29:41.000000000 +0200
++++ nosefart-2.1-mls/src/gnosefart-1.0/src/main.c	2004-04-18 23:53:30.663542088 +0200
 @@ -45,7 +45,7 @@
  
  void gnosefart_init(int argc, char ** argv)
