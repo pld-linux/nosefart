@@ -1,0 +1,41 @@
+--- nosefart-1.92c-mls/Makefile.orig	Wed Nov  6 07:13:02 2002
++++ nosefart-1.92c-mls/Makefile	Sun Apr 13 14:21:57 2003
+@@ -2,8 +2,9 @@
+ # Configuration
+ 
+ CC = gcc
+-CFLAGS = 
++CFLAGS = $(OPTFLAGS)
+ LDFLAGS =
++LDADD = -lm
+ PREFIX = /usr/local
+ # WANT_DEBUG = TRUE
+ 
+@@ -22,7 +23,7 @@
+ ifeq "$(WANT_DEBUG)" "TRUE"
+ 	CFLAGS += -ggdb -DNSF_PLAYER
+ else
+-	CFLAGS += -O2 -fomit-frame-pointer -ffast-math -funroll-loops -DNSF_PLAYER
++	CFLAGS += -fomit-frame-pointer -ffast-math -funroll-loops -DNSF_PLAYER
+ 	DEBUG_OBJECTS =
+ endif
+ 
+@@ -32,8 +33,7 @@
+ 	-I$(SRCDIR)/machine\
+ 	-I$(SRCDIR)/cpu/nes6502\
+ 	-I$(BUILDDIR)\
+-	-I/usr/local/include/\
+-	-lm
++	-I/usr/local/include/
+ 
+ ################################
+ # Here's where the directory tree gets ugly
+@@ -96,7 +96,7 @@
+ # The real heavy lifting
+ 
+ $(BUILDDIR)/$(NAME): $(OBJECTS)
+-	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $(OBJECTS)
++	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $(OBJECTS) $(LDADD)
+ 
+ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
+ 	$(CC) $(CFLAGS) -o $@ -c $<
