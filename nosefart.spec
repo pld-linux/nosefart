@@ -1,18 +1,18 @@
 Summary:	Nosefart - NSF files player
 Summary(pl):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
-Version:	2.0
-Release:	2
+Version:	2.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
-# Source0-md5:	0901fcdc379da96ad61c039a955606b4
+# Source0-md5:	9bfc8b1e69e2c903e297432bbf6825ef
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-sh.patch
 URL:		http://nosefart.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xmms-devel
@@ -66,7 +66,7 @@ nosefart.
 %patch0 -p1
 %patch1 -p1
 
-rm -rf src/gnosefart-0.9/autom4te.cache
+rm -rf src/gnosefart-1.0/autom4te.cache
 
 %build
 %{__make} \
@@ -84,7 +84,7 @@ cd src/xmms
 %{__make} \
 	AM_LDFLAGS="-lm"
 
-cd ../gnosefart-0.9
+cd ../gnosefart-1.0
 rm -f mkinstalldirs
 cp -f /usr/share/automake/mkinstalldirs .
 glib-gettextize --copy --force
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{xmms_input_plugindir}
 install src/xmms/.libs/libnosefart.so $RPM_BUILD_ROOT%{xmms_input_plugindir}
 
-%{__make} -C src/gnosefart-0.9 install \
+%{__make} -C src/gnosefart-1.0 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -123,3 +123,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gnosefart
 %{_datadir}/gnosefart
+%{_desktopdir}/gnosefart.desktop
+%{_pixmapsdir}/gnosefart.png
