@@ -1,12 +1,12 @@
 Summary:	Nosefart - NSF files player
 Summary(pl):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
-Version:	2.1
+Version:	2.3
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
-# Source0-md5:	9bfc8b1e69e2c903e297432bbf6825ef
+# Source0-md5:	89c0e59bb3ab562a647653c90b3a8ed1
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-sh.patch
 URL:		http://nosefart.sourceforge.net/
@@ -66,7 +66,7 @@ nosefart.
 %patch0 -p1
 %patch1 -p1
 
-rm -rf src/gnosefart-1.0/autom4te.cache
+rm -rf src/gnosefart-1.1/autom4te.cache
 
 %build
 %{__make} \
@@ -84,7 +84,7 @@ cd src/xmms
 %{__make} \
 	AM_LDFLAGS="-lm"
 
-cd ../gnosefart-1.0
+cd ../gnosefart-1.1
 rm -f mkinstalldirs
 cp -f /usr/share/automake/mkinstalldirs .
 glib-gettextize --copy --force
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{xmms_input_plugindir}
 install src/xmms/.libs/libnosefart.so $RPM_BUILD_ROOT%{xmms_input_plugindir}
 
-%{__make} -C src/gnosefart-1.0 install \
+%{__make} -C src/gnosefart-1.1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
