@@ -1,5 +1,5 @@
---- nosefart-2.0-mls/Makefile.orig	2004-04-04 23:48:11.000000000 +0200
-+++ nosefart-2.0-mls/Makefile	2004-04-18 23:40:49.692227312 +0200
+--- nosefart-2.3-mls/Makefile.orig	2004-04-04 23:48:11.000000000 +0200
++++ nosefart-2.3-mls/Makefile	2004-04-18 23:40:49.692227312 +0200
 @@ -2,10 +2,11 @@
  # Configuration
  
@@ -9,7 +9,7 @@
 +CFLAGS = $(OPTFLAGS)
 +LDFLAGS =
 +LDADD = -lm
- PREFIX = /usr/local
+ PREFIX = /usr
 -WANT_DEBUG=TRUE
 +WANT_DEBUG=FALSE
  

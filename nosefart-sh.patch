@@ -1,11 +1,12 @@
---- nosefart-2.1-mls/src/gnosefart-1.0/src/main.c.orig	2004-04-17 03:29:41.000000000 +0200
-+++ nosefart-2.1-mls/src/gnosefart-1.0/src/main.c	2004-04-18 23:53:30.663542088 +0200
-@@ -45,7 +45,7 @@
- 
- void gnosefart_init(int argc, char ** argv)
- {
--	if(!system("nosefart &> /dev/stdout | grep \"command not found\"")) /* hack hack hack */
-+	if(system("nosefart >/dev/null 2>/dev/null")) /* hack hack hack */
+--- nosefart-2.3-mls/src/gnosefart-1.1/src/main.c.orig	2004-05-02 02:43:20.000000000 +0200
++++ nosefart-2.3-mls/src/gnosefart-1.1/src/main.c	2004-09-04 19:43:43.428845216 +0200
+@@ -55,8 +55,7 @@
+ 	   This is all very hackful and probably easy to break.
+ 	   Note that the version line does string comparison, not numerical comparison. 
+ 	   (Numerical comparison does integers only.) */
+-	if(!system("nosefart &> /dev/stdout | grep \"command not found\"") ||
+-	   !system("[[ \"`nosefart -v | grep -i Version | cut -d\\  -f 2 | cut -d- -f 1`\" < \"" NEEDNFVERSION "\" ]]"))
++	if(system("nosefart > /dev/null 2>/dev/null"))
  	{
  		nferror = create_nonosefart_error();
  		gtk_widget_show(nferror);		
