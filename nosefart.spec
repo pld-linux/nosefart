@@ -12,7 +12,7 @@ Patch1:		%{name}-sh.patch
 URL:		http://nosefart.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xmms-devel
