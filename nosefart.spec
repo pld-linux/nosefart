@@ -1,5 +1,5 @@
 Summary:	Nosefart - NSF files player
-Summary(pl):	Nosefart - odtwarzacz plików NSF
+Summary(pl.UTF-8):   Nosefart - odtwarzacz plikÃ³w NSF
 Name:		nosefart
 Version:	2.6
 Release:	1
@@ -24,14 +24,14 @@ music code and data from NES games. All that you need to accurately
 play the music tracks back are accurate 6502 and NES sound register
 emulation.
 
-%description -l pl
-Nosefart to odtwarzacz plików NSF. NSF to pliki zawieraj±ce kod
-odtwarzaj±cy muzykê oraz dane z gier NES. Do ich odtwarzania potrzebna
-jest dok³adna emulacja 6502 i rejestrów d¼wiêkowych NES.
+%description -l pl.UTF-8
+Nosefart to odtwarzacz plikÃ³w NSF. NSF to pliki zawierajÄ…ce kod
+odtwarzajÄ…cy muzykÄ™ oraz dane z gier NES. Do ich odtwarzania potrzebna
+jest dokÅ‚adna emulacja 6502 i rejestrÃ³w dÅºwiÄ™kowych NES.
 
 %package -n xmms-input-nosefart
 Summary:	Nosefart player as XMMS plugin
-Summary(pl):	Odtwarzacz Nosefart jako wtyczka XMMS-a
+Summary(pl.UTF-8):   Odtwarzacz Nosefart jako wtyczka XMMS-a
 Group:		X11/Applications/Sound
 
 %description -n xmms-input-nosefart
@@ -40,15 +40,15 @@ music code and data from NES games. All that you need to accurately
 play the music tracks back are accurate 6502 and NES sound register
 emulation. This package contains NSF player built as XMMS plugin.
 
-%description -n xmms-input-nosefart -l pl
-Nosefart to odtwarzacz plików NSF. NSF to pliki zawieraj±ce kod
-odtwarzaj±cy muzykê oraz dane z gier NES. Do ich odtwarzania potrzebna
-jest dok³adna emulacja 6502 i rejestrów d¼wiêkowych NES. Ten pakiet
+%description -n xmms-input-nosefart -l pl.UTF-8
+Nosefart to odtwarzacz plikÃ³w NSF. NSF to pliki zawierajÄ…ce kod
+odtwarzajÄ…cy muzykÄ™ oraz dane z gier NES. Do ich odtwarzania potrzebna
+jest dokÅ‚adna emulacja 6502 i rejestrÃ³w dÅºwiÄ™kowych NES. Ten pakiet
 zawiera odtwarzacz zbudowany jako wtyczka XMMS-a.
 
 %package -n gnosefart
 Summary:	Graphical player for Nintendo NES audio files
-Summary(pl):	Graficzny odtwarzacz plików d¼wiêkowych NES z Nintendo
+Summary(pl.UTF-8):   Graficzny odtwarzacz plikÃ³w dÅºwiÄ™kowych NES z Nintendo
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -56,8 +56,8 @@ Requires:	%{name} = %{version}-%{release}
 gnosefart plays .nsf audio files that were ripped from games for the
 Nintendo Entertainment System. It's a GTK+ front end for nosefart.
 
-%description -n gnosefart -l pl
-gnosefart odtwarza pliki d¼wiêkowe .nsf wyci±gniête z gier dla konsol
+%description -n gnosefart -l pl.UTF-8
+gnosefart odtwarza pliki dÅºwiÄ™kowe .nsf wyciÄ…gniÄ™te z gier dla konsol
 Nintendo Entertainment System. Jest to interfejs GTK+ dla programu
 nosefart.
 
