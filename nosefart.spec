@@ -1,5 +1,5 @@
 Summary:	Nosefart - NSF files player
-Summary(pl.UTF-8):   Nosefart - odtwarzacz plików NSF
+Summary(pl.UTF-8):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
 Version:	2.6
 Release:	1
@@ -31,7 +31,7 @@ jest dokładna emulacja 6502 i rejestrów dźwiękowych NES.
 
 %package -n xmms-input-nosefart
 Summary:	Nosefart player as XMMS plugin
-Summary(pl.UTF-8):   Odtwarzacz Nosefart jako wtyczka XMMS-a
+Summary(pl.UTF-8):	Odtwarzacz Nosefart jako wtyczka XMMS-a
 Group:		X11/Applications/Sound
 
 %description -n xmms-input-nosefart
@@ -48,7 +48,7 @@ zawiera odtwarzacz zbudowany jako wtyczka XMMS-a.
 
 %package -n gnosefart
 Summary:	Graphical player for Nintendo NES audio files
-Summary(pl.UTF-8):   Graficzny odtwarzacz plików dźwiękowych NES z Nintendo
+Summary(pl.UTF-8):	Graficzny odtwarzacz plików dźwiękowych NES z Nintendo
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
