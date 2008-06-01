@@ -1,12 +1,12 @@
 Summary:	Nosefart - NSF files player
 Summary(pl.UTF-8):	Nosefart - odtwarzacz plików NSF
 Name:		nosefart
-Version:	2.6
+Version:	2.7
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/nosefart/%{name}-%{version}-mls.tar.bz2
-# Source0-md5:	cbf1cb3658e2042e76a4bb0b35c2ca84
+# Source0-md5:	f5b3a2037b2c5851b506898fc1f7d6bc
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-sh.patch
 URL:		http://nosefart.sourceforge.net/
@@ -29,6 +29,21 @@ Nosefart to odtwarzacz plików NSF. NSF to pliki zawierające kod
 odtwarzający muzykę oraz dane z gier NES. Do ich odtwarzania potrzebna
 jest dokładna emulacja 6502 i rejestrów dźwiękowych NES.
 
+%package -n gnosefart
+Summary:	Graphical player for Nintendo NES audio files
+Summary(pl.UTF-8):	Graficzny odtwarzacz plików dźwiękowych NES z Nintendo
+Group:		X11/Applications/Sound
+Requires:	%{name} = %{version}-%{release}
+
+%description -n gnosefart
+gnosefart plays .nsf audio files that were ripped from games for the
+Nintendo Entertainment System. It's a GTK+ front end for nosefart.
+
+%description -n gnosefart -l pl.UTF-8
+gnosefart odtwarza pliki dźwiękowe .nsf wyciągnięte z gier dla konsol
+Nintendo Entertainment System. Jest to interfejs GTK+ dla programu
+nosefart.
+
 %package -n xmms-input-nosefart
 Summary:	Nosefart player as XMMS plugin
 Summary(pl.UTF-8):	Odtwarzacz Nosefart jako wtyczka XMMS-a
@@ -46,27 +61,12 @@ odtwarzający muzykę oraz dane z gier NES. Do ich odtwarzania potrzebna
 jest dokładna emulacja 6502 i rejestrów dźwiękowych NES. Ten pakiet
 zawiera odtwarzacz zbudowany jako wtyczka XMMS-a.
 
-%package -n gnosefart
-Summary:	Graphical player for Nintendo NES audio files
-Summary(pl.UTF-8):	Graficzny odtwarzacz plików dźwiękowych NES z Nintendo
-Group:		X11/Applications/Sound
-Requires:	%{name} = %{version}-%{release}
-
-%description -n gnosefart
-gnosefart plays .nsf audio files that were ripped from games for the
-Nintendo Entertainment System. It's a GTK+ front end for nosefart.
-
-%description -n gnosefart -l pl.UTF-8
-gnosefart odtwarza pliki dźwiękowe .nsf wyciągnięte z gier dla konsol
-Nintendo Entertainment System. Jest to interfejs GTK+ dla programu
-nosefart.
-
 %prep
 %setup -q -n %{name}-%{version}-mls
 %patch0 -p1
 %patch1 -p1
 
-rm -rf src/gnosefart-1.4/autom4te.cache
+rm -r src/gnosefart-1.5/autom4te.cache
 
 %build
 %{__make} \
@@ -74,17 +74,7 @@ rm -rf src/gnosefart-1.4/autom4te.cache
 	OPTFLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
-cd src/xmms
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
-%{__make} \
-	AM_LDFLAGS="-lm"
-
-cd ../gnosefart-1.4
+cd src/gnosefart-1.5
 rm -f mkinstalldirs
 cp -f /usr/share/automake/mkinstalldirs .
 glib-gettextize --copy --force
@@ -95,6 +85,16 @@ glib-gettextize --copy --force
 %configure
 %{__make}
 
+cd ../xmms
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure
+%{__make} \
+	AM_LDFLAGS="-lm"
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{xmms_input_plugindir}
 install src/xmms/.libs/libnosefart.so $RPM_BUILD_ROOT%{xmms_input_plugindir}
 
-%{__make} -C src/gnosefart-1.4 install \
+%{__make} -C src/gnosefart-1.5 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -115,13 +115,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES README
 %attr(755,root,root) %{_bindir}/nosefart
 
+%files -n gnosefart
+%defattr(644,root,root,755)
+%doc src/gnosefart-1.5/{AUTHORS,ChangeLog,README,TODO}
+%attr(755,root,root) %{_bindir}/gnosefart
+%{_desktopdir}/gnosefart.desktop
+%{_pixmapsdir}/gnosefart.png
+
 %files -n xmms-input-nosefart
 %defattr(644,root,root,755)
 %attr(755,root,root) %{xmms_input_plugindir}/libnosefart.so
-
-%files -n gnosefart
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/gnosefart
-%{_datadir}/gnosefart
-%{_desktopdir}/gnosefart.desktop
-%{_pixmapsdir}/gnosefart.png
