@@ -1,5 +1,5 @@
---- nosefart-2.6-mls/src/gnosefart-1.4/src/main.c.orig	2004-05-02 02:43:20.000000000 +0200
-+++ nosefart-2.6-mls/src/gnosefart-1.4/src/main.c	2004-09-04 19:43:43.428845216 +0200
+--- nosefart-2.7-mls/src/gnosefart-1.5/src/main.c.orig	2004-05-02 02:43:20.000000000 +0200
++++ nosefart-2.7-mls/src/gnosefart-1.5/src/main.c	2004-09-04 19:43:43.428845216 +0200
 @@ -55,8 +55,7 @@
  	   This is all very hackful and probably easy to break.
  	   Note that the version line does string comparison, not numerical comparison. 
